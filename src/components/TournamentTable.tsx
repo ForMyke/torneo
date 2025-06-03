@@ -26,9 +26,20 @@ const TournamentTable: React.FC<Props> = ({
     const nRounds = rounds.length;
     const columnW = width / nRounds;
 
+<<<<<<< HEAD
     /** Map<matchId, {x,y}> */
     const pos: Map<string, { x: number; y: number }> = new Map();
     const baseH = (rounds[0].matches.length + 1) * matchGap;
+=======
+    /**
+     * Guarda en un Map la posición { x, y } de cada partido por su id.
+     * La ronda 0 (primera) aparece con y = (mIdx+1)*matchGap,
+     * luego las demás se centran entre los dos “padres”.
+     */
+    const matchPos: Map<string, { x: number; y: number }> = new Map();
+    rounds.forEach((round, rIdx) => {
+      const x = columnW * rIdx + columnW / 2;
+>>>>>>> b26db4d84bf2e41e7d171913f6eefd5740014814
 
     rounds.forEach((round, r) => {
       const x = columnW * r + columnW / 2;
@@ -39,6 +50,7 @@ const TournamentTable: React.FC<Props> = ({
         const startY = (baseH - totalH) / 2;
         round.matches.forEach((m, i) => pos.set(m.id, { x, y: startY + i * matchGap }));
       } else {
+<<<<<<< HEAD
         /* Rondas siguientes */
         round.matches.forEach(m => {
           const parts  = m.id.split("|");
@@ -46,6 +58,27 @@ const TournamentTable: React.FC<Props> = ({
           const left   = pos.get(parts.slice(0, mid ).join("|"))!;
           const right  = pos.get(parts.slice(mid   ).join("|"))!;
           pos.set(m.id, { x, y: (left.y + right.y) / 2 });
+=======
+        // Rondas sucesivas: centrado entre los “padres”
+        round.matches.forEach((match) => {
+          // Separar el id con “|”, exactamente en el mismo orden de los ids de la ronda anterior
+          const partes = match.id.split("|");
+          // Si concatenaste más de dos ids (por ej. “a|b|c|d”),
+          // asumes que “padre izquierdo” es la combinación de los dos primeros (a|b)
+          // y “padre derecho” la combinación de los dos últimos (c|d).
+          // Para no complicar la lógica, en este ejemplo
+          // vamos a tomar las dos mitades:
+          const mitad = Math.floor(partes.length / 2);
+          const leftId = partes.slice(0, mitad).join("|");
+          const rightId = partes.slice(mitad).join("|");
+
+          const posLeft = matchPos.get(leftId);
+          const posRight = matchPos.get(rightId);
+          const y1 = posLeft ? posLeft.y : 0;
+          const y2 = posRight ? posRight.y : 0;
+          // Centro entre y1 y y2
+          matchPos.set(match.id, { x, y: (y1 + y2) / 2 });
+>>>>>>> b26db4d84bf2e41e7d171913f6eefd5740014814
         });
       }
     });
@@ -151,6 +184,7 @@ const animateDash = (
         return `translate(${x},${y}) scale(1)`;
       });
 
+<<<<<<< HEAD
     /* 6-a: resaltado del ganador */
     g.append("rect")
       .attr("x", d => d.winner === 1 ? -boxW/2 : 0)
@@ -160,6 +194,11 @@ const animateDash = (
       .attr("fill", "#c6aae8")
       .attr("opacity", 0.2)
       .attr("rx", 6);
+=======
+    const boxW = columnW * 0.8; // ancho de la caja
+    const boxH = 50; // alto total (incluye espacio para dos equipos)
+    const textPad = 8; // padding interior
+>>>>>>> b26db4d84bf2e41e7d171913f6eefd5740014814
 
     /* 6-b: caja principal */
     g.append("rect")

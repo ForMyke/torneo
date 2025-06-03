@@ -26,20 +26,9 @@ const TournamentTable: React.FC<Props> = ({
     const nRounds = rounds.length;
     const columnW = width / nRounds;
 
-<<<<<<< HEAD
     /** Map<matchId, {x,y}> */
     const pos: Map<string, { x: number; y: number }> = new Map();
     const baseH = (rounds[0].matches.length + 1) * matchGap;
-=======
-    /**
-     * Guarda en un Map la posición { x, y } de cada partido por su id.
-     * La ronda 0 (primera) aparece con y = (mIdx+1)*matchGap,
-     * luego las demás se centran entre los dos “padres”.
-     */
-    const matchPos: Map<string, { x: number; y: number }> = new Map();
-    rounds.forEach((round, rIdx) => {
-      const x = columnW * rIdx + columnW / 2;
->>>>>>> b26db4d84bf2e41e7d171913f6eefd5740014814
 
     rounds.forEach((round, r) => {
       const x = columnW * r + columnW / 2;
@@ -57,7 +46,6 @@ const TournamentTable: React.FC<Props> = ({
           const left   = pos.get(parts.slice(0, mid ).join("|"))!;
           const right  = pos.get(parts.slice(mid   ).join("|"))!;
           pos.set(m.id, { x, y: (left.y + right.y) / 2 });
-
         });
       }
     });
@@ -88,26 +76,23 @@ const TournamentTable: React.FC<Props> = ({
     /* ──────────────────────────────────────────────────────────────────────
      * 5. Conexiones (stroke-dasharray + animación)
      * ──────────────────────────────────────────────────────────────────────*/
-/* 5. Conexiones (stroke-dasharray + animación) --------------------------- */
-const dash  = "0.1 10";
-const speed = 25000;
+    const dash  = "0.1 10";
+    const speed = 25000;
 
-/*  ⬇⬇⬇  cambia solo ESTA firma  ⬇⬇⬇  */
-const animateDash = (
-  path: d3.Selection<SVGPathElement, unknown, any, unknown>
-) => {
-  const len = (path.node() as SVGPathElement).getTotalLength();
+    const animateDash = (
+      path: d3.Selection<SVGPathElement, unknown, any, unknown>
+    ) => {
+      const len = (path.node() as SVGPathElement).getTotalLength();
 
-  path
-    .attr("stroke-dasharray", dash)
-    .attr("stroke-dashoffset", len)
-    .transition()
-      .duration(speed)
-      .ease(d3.easeLinear)
-      .attr("stroke-dashoffset", 0)
-      .on("end", () => animateDash(path));   // ← ahora compila sin quejas
-};
-
+      path
+        .attr("stroke-dasharray", dash)
+        .attr("stroke-dashoffset", len)
+        .transition()
+          .duration(speed)
+          .ease(d3.easeLinear)
+          .attr("stroke-dashoffset", 0)
+          .on("end", () => animateDash(path));
+    };
 
     rounds.forEach((round, r) => {
       if (r === 0) return;
@@ -163,7 +148,6 @@ const animateDash = (
         return `translate(${x},${y}) scale(1)`;
       });
 
-<<<<<<< HEAD
     /* 6-a: resaltado del ganador */
     g.append("rect")
       .attr("x", d => d.winner === 1 ? -boxW/2 : 0)
@@ -173,11 +157,6 @@ const animateDash = (
       .attr("fill", "#c6aae8")
       .attr("opacity", 0.2)
       .attr("rx", 6);
-=======
-    const boxW = columnW * 0.8; // ancho de la caja
-    const boxH = 50; // alto total (incluye espacio para dos equipos)
-    const textPad = 8; // padding interior
->>>>>>> b26db4d84bf2e41e7d171913f6eefd5740014814
 
     /* 6-b: caja principal */
     g.append("rect")

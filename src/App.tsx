@@ -124,13 +124,8 @@ const rounds: Round[] = [
 ];
 export default function App() {
   return (
-<<<<<<< HEAD
     <div className="tournament-container">
       <h2 className="tournament-title">Campeones de la UEFA 2024/25</h2>
-=======
-    <div style={{ padding: 24 }}>
-      <h2 style={{ textAlign: "center" }}>Torneo</h2>
->>>>>>> b26db4d84bf2e41e7d171913f6eefd5740014814
       <TournamentTable rounds={rounds} width={1100} matchGap={80} />
     </div>
   );

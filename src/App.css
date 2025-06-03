@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:400");
 
-@font-face {
-  font-family: "Font";
-  src: url("/TC3/fonts/items/JetBrains.ttf");
-}
 
 * {
   box-sizing: border-box;
@@ -15,35 +11,40 @@ html, body {
 }
 
 body {
-  color: #c6aae8; /* Texto en morado claro */
+  color: #333333;
   font-family: "Font", "Raleway", sans-serif;
-  background: #11111B;
+  background: #f1f3f7;
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 hr {
   border: 2px;
   height: 3px;
   opacity: 0.7;
-  background-color: #e296cf;
+  background-color: #333333;
 }
 
 h2 {
-  color: #c5c5c5;
+  color: #333333;
   font-size: 25px;
   margin-bottom: 1.5rem;
   transition: color 0.3s ease;
 }
 
 h2:hover {
-  color: #e296cf;
+  color: #000000;
 }
 
 .navbar-brand {
@@ -95,7 +96,7 @@ h2:hover {
 }
 
 .color1 {
-  background-color: #11111B;
+  background-color: #ffffff;
 }
 
 .color2 {
@@ -119,25 +120,37 @@ h2:hover {
 }
 
 @keyframes glowEffect {
-  0% { filter: drop-shadow(0 0 2px rgba(198, 170, 232, 0.3)); }
-  50% { filter: drop-shadow(0 0 8px rgba(198, 170, 232, 0.6)); }
-  100% { filter: drop-shadow(0 0 2px rgba(198, 170, 232, 0.3)); }
+  0% { filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1)); }
+  50% { filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2)); }
+  100% { filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1)); }
 }
 
 .tournament-container {
   animation: fadeIn 0.8s ease-out;
   padding: 24px;
-  background-color: #1a1a2e;
+  background-color: transparent;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid #c6aae8;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  margin-left: 2rem;
 }
 
 .tournament-title {
-  color: #c5c5c5;
+  color: #333333;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   animation: scaleIn 0.5s ease-out;
+  font-weight: bold;
+}
+
+svg {
+  flex: 1;
+  height: auto !important;
+  min-height: 0;
+  overflow: visible;
 }
 
 .logo {

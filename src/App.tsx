@@ -11,51 +11,51 @@ const rounds: Round[] = [
     name: "",
     matches: [
       {
-        id: "jugador1-jugador2", // Original: psv-juventus
-        team1: { name: "jugador1", score: 3, logo: "/logos/psv.png" }, // PSV -> jugador1
-        team2: { name: "jugador2", score: 1, logo: "/logos/juventus.png" }, // Juventus -> jugador2
+        id: "jugador1-jugador2",
+        team1: { name: "jugador1", score: 3, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador2", score: 1, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador3-jugador4", // Original: realmadrid-mancity
-        team1: { name: "jugador3", score: 3, logo: "/logos/realmadrid.png" }, // Real Madrid -> jugador3
-        team2: { name: "jugador4", score: 1, logo: "/logos/mancity.png" }, // Man City -> jugador4
+        id: "jugador3-jugador4",
+        team1: { name: "jugador3", score: 3, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador4", score: 1, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador5-jugador6", // Original: paris-brest
-        team1: { name: "jugador5", score: 7, logo: "/logos/psg.png" }, // Paris -> jugador5
-        team2: { name: "jugador6", score: 0, logo: "/logos/brest.png" }, // Brest -> jugador6
+        id: "jugador5-jugador6",
+        team1: { name: "jugador5", score: 7, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador6", score: 0, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador7-jugador8", // Original: atalanta-clubbrugge
-        team1: { name: "jugador7", score: 1, logo: "/logos/atalanta.png" }, // Atalanta -> jugador7
-        team2: { name: "jugador8", score: 3, logo: "/logos/clubbrugge.png" }, // Club Brugge -> jugador8
+        id: "jugador7-jugador8",
+        team1: { name: "jugador7", score: 1, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador8", score: 3, logo: "/src/res/gamblerPlayer.png" },
         winner: 2,
       },
       {
-        id: "jugador9-jugador10", // Original: benfica-monaco
-        team1: { name: "jugador9", score: 3, logo: "/logos/benfica.png" }, // Benfica -> jugador9
-        team2: { name: "jugador10", score: 3, logo: "/logos/monaco.png" }, // Monaco -> jugador10
-        winner: 1, // ganar por away goals, por ejemplo
-      },
-      {
-        id: "jugador11-jugador12", // Original: dortmund-sporting
-        team1: { name: "jugador11", score: 0, logo: "/logos/dortmund.png" }, // B. Dortmund -> jugador11
-        team2: { name: "jugador12", score: 0, logo: "/logos/sporting.png" }, // Sporting CP -> jugador12
+        id: "jugador9-jugador10",
+        team1: { name: "jugador9", score: 3, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador10", score: 3, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador13-jugador14", // Original: bayern-celtic
-        team1: { name: "jugador13", score: 1, logo: "/logos/bayern.png" }, // Bayern München -> jugador13
-        team2: { name: "jugador14", score: 1, logo: "/logos/celtic.png" }, // Celtic -> jugador14
+        id: "jugador11-jugador12",
+        team1: { name: "jugador11", score: 0, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador12", score: 0, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador15-jugador16", // Original: inter-feyenoord
-        team1: { name: "jugador15", score: 2, logo: "/logos/inter.png" }, // Inter -> jugador15
-        team2: { name: "jugador16", score: 1, logo: "/logos/feyenoord.png" }, // Feyenoord -> jugador16
+        id: "jugador13-jugador14",
+        team1: { name: "jugador13", score: 1, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador14", score: 1, logo: "/src/res/gamblerPlayer.png" },
+        winner: 1,
+      },
+      {
+        id: "jugador15-jugador16",
+        team1: { name: "jugador15", score: 2, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador16", score: 1, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
     ],
@@ -64,27 +64,27 @@ const rounds: Round[] = [
     name: "",
     matches: [
       {
-        id: "jugador1-jugador2|jugador3-jugador4", // Original: psv-juventus|realmadrid-mancity
-        team1: { name: "jugador1", score: 2, logo: "/logos/psv.png" }, // PSV -> jugador1
-        team2: { name: "jugador3", score: 0, logo: "/logos/realmadrid.png" }, // Real Madrid -> jugador3
+        id: "jugador1-jugador2|jugador3-jugador4",
+        team1: { name: "jugador1", score: 2, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador3", score: 0, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador5-jugador6|jugador7-jugador8", // Original: paris-brest|atalanta-clubbrugge
-        team1: { name: "jugador5", score: 3, logo: "/logos/psg.png" }, // Paris -> jugador5
-        team2: { name: "jugador17", score: 3, logo: "/logos/astonvilla.png" }, // Aston Villa -> jugador17
+        id: "jugador5-jugador6|jugador7-jugador8",
+        team1: { name: "jugador5", score: 3, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador17", score: 3, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador9-jugador10|jugador11-jugador12", // Original: benfica-monaco|dortmund-sporting
-        team1: { name: "jugador18", score: 3, logo: "/logos/barcelona.png" }, // Barcelona -> jugador18
-        team2: { name: "jugador11", score: 1, logo: "/logos/dortmund.png" }, // B. Dortmund -> jugador11
+        id: "jugador9-jugador10|jugador11-jugador12",
+        team1: { name: "jugador18", score: 3, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador11", score: 1, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador13-jugador14|jugador15-jugador16", // Original: bayern-celtic|inter-feyenoord
-        team1: { name: "jugador13", score: 2, logo: "/logos/bayern.png" }, // Bayern München -> jugador13
-        team2: { name: "jugador15", score: 2, logo: "/logos/inter.png" }, // Inter -> jugador15
+        id: "jugador13-jugador14|jugador15-jugador16",
+        team1: { name: "jugador13", score: 2, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador15", score: 2, logo: "/src/res/gamblerPlayer.png" },
         winner: 2,
       },
     ],
@@ -93,15 +93,15 @@ const rounds: Round[] = [
     name: "",
     matches: [
       {
-        id: "jugador1-jugador2|jugador3-jugador4|jugador5-jugador6|jugador7-jugador8", // Original: psv-juventus|realmadrid-mancity|paris-brest|atalanta-clubbrugge
-        team1: { name: "jugador19", score: 2, logo: "/logos/arsenal.png" }, // Arsenal -> jugador19
-        team2: { name: "jugador3", score: 1, logo: "/logos/realmadrid.png" }, // Real Madrid -> jugador3
+        id: "jugador1-jugador2|jugador3-jugador4|jugador5-jugador6|jugador7-jugador8",
+        team1: { name: "jugador19", score: 2, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador3", score: 1, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
       {
-        id: "jugador9-jugador10|jugador11-jugador12|jugador13-jugador14|jugador15-jugador16", // Original: benfica-monaco|dortmund-sporting|bayern-celtic|inter-feyenoord
-        team1: { name: "jugador11", score: 3, logo: "/logos/dortmund.png" }, // B. Dortmund -> jugador11
-        team2: { name: "jugador18", score: 1, logo: "/logos/barcelona.png" }, // Barcelona -> jugador18
+        id: "jugador9-jugador10|jugador11-jugador12|jugador13-jugador14|jugador15-jugador16",
+        team1: { name: "jugador11", score: 3, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador18", score: 1, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
     ],
@@ -110,22 +110,19 @@ const rounds: Round[] = [
     name: " ",
     matches: [
       {
-        id:
-          "jugador1-jugador2|jugador3-jugador4|jugador5-jugador6|jugador7-jugador8" +
-          "|" +
-          "jugador9-jugador10|jugador11-jugador12|jugador13-jugador14|jugador15-jugador16",
-        // Original: "psv-juventus|realmadrid-mancity|paris-brest|atalanta-clubbrugge" + "|" + "benfica-monaco|dortmund-sporting|bayern-celtic|inter-feyenoord"
-        team1: { name: "jugador5", score: 2, logo: "/logos/psg.png" }, // Paris -> jugador5
-        team2: { name: "jugador19", score: 1, logo: "/logos/arsenal.png" }, // Arsenal -> jugador19
+        id: "jugador1-jugador2|jugador3-jugador4|jugador5-jugador6|jugador7-jugador8|jugador9-jugador10|jugador11-jugador12|jugador13-jugador14|jugador15-jugador16",
+        team1: { name: "jugador5", score: 2, logo: "/src/res/gamblerPlayer.png" },
+        team2: { name: "jugador19", score: 1, logo: "/src/res/gamblerPlayer.png" },
         winner: 1,
       },
     ],
   },
 ];
+
 export default function App() {
   return (
     <div className="tournament-container">
-      <h2 className="tournament-title">Campeones de la UEFA 2024/25</h2>
+      
       <TournamentTable rounds={rounds} width={1100} matchGap={80} />
     </div>
   );

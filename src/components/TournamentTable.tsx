@@ -68,7 +68,7 @@ const TournamentTable: React.FC<Props> = ({
      * ──────────────────────────────────────────────────────────────────────*/
     const defs  = svg.append("defs");
     const glow  = defs.append("filter").attr("id", "glow");
-    glow.append("feGaussianBlur").attr("stdDeviation", 2.5).attr("result", "b");
+    glow.append("feGaussianBlur").attr("stdDeviation", 1.5).attr("result", "b");
     glow.append("feMerge").selectAll("feMergeNode")
       .data(["b", "SourceGraphic"]).enter()
       .append("feMergeNode").attr("in", d => d);
@@ -76,7 +76,7 @@ const TournamentTable: React.FC<Props> = ({
     /* ──────────────────────────────────────────────────────────────────────
      * 5. Conexiones (stroke-dasharray + animación)
      * ──────────────────────────────────────────────────────────────────────*/
-    const dash  = "0.1 10";
+    const dash  = "5 8";
     const speed = 25000;
 
     const animateDash = (
@@ -110,8 +110,8 @@ const TournamentTable: React.FC<Props> = ({
           const path = svg.append("path")
             .attr("d", make(from))
             .attr("fill", "none")
-            .attr("stroke", "#c6aae8")
-            .attr("stroke-width", 3)
+            .attr("stroke", "#333333")
+            .attr("stroke-width", 2)
             .attr("stroke-linecap", "round")
             .attr("opacity", 0);
 
@@ -125,9 +125,9 @@ const TournamentTable: React.FC<Props> = ({
     /* ──────────────────────────────────────────────────────────────────────
      * 6. Dibujar partidos
      * ──────────────────────────────────────────────────────────────────────*/
-    const boxW   = columnW * 0.8;
-    const boxH   = 50;
-    const pad    = 8;
+    const boxW   = columnW * 0.85;
+    const boxH   = 60;
+    const pad    = 12;
 
     const g = svg.selectAll("g.match")
       .data(rounds.flatMap(r => r.matches))
@@ -154,8 +154,8 @@ const TournamentTable: React.FC<Props> = ({
       .attr("y", d => d.winner === 1 ? -boxH/2 : 0)
       .attr("width",  boxW/2)
       .attr("height", boxH/2)
-      .attr("fill", "#c6aae8")
-      .attr("opacity", 0.2)
+      .attr("fill", "#333333")
+      .attr("opacity", 0.1)
       .attr("rx", 6);
 
     /* 6-b: caja principal */
@@ -163,8 +163,8 @@ const TournamentTable: React.FC<Props> = ({
       .attr("x", -boxW/2).attr("y", -boxH/2)
       .attr("width", boxW).attr("height", boxH)
       .attr("rx", 6)
-      .attr("fill", "#1a1a2e")
-      .attr("stroke", "#c6aae8")
+      .attr("fill", "#ffffff")
+      .attr("stroke", "#333333")
       .attr("stroke-width", 1.5)
       .attr("filter", "url(#glow)");
 
@@ -172,60 +172,69 @@ const TournamentTable: React.FC<Props> = ({
     g.append("image")
       .attr("xlink:href", d => d.team1.logo || "")
       .attr("x", -boxW/2 + pad)
-      .attr("y", -boxH/2 + 4)
-      .attr("width", 20).attr("height", 20)
+      .attr("y", -boxH/2 + 8)
+      .attr("width", 32)
+      .attr("height", 32)
       .attr("visibility", d => d.team1.logo ? "visible" : "hidden");
 
     g.append("image")
       .attr("xlink:href", d => d.team2.logo || "")
       .attr("x", -boxW/2 + pad)
-      .attr("y", 0 + 4)
-      .attr("width", 20).attr("height", 20)
+      .attr("y", -2)
+      .attr("width", 32)
+      .attr("height", 32)
       .attr("visibility", d => d.team2.logo ? "visible" : "hidden");
 
     /* 6-d: textos equipo 1 */
     g.append("text")
-      .attr("x", -boxW/2 + pad + 24)
-      .attr("y", -6)
-      .attr("font-size", 12)
-      .attr("fill", "#c5c5c5")
+      .attr("x", -boxW/2 + pad + 40)
+      .attr("y", -boxH/4)
+      .attr("font-size", 14)
+      .attr("fill", "#333333")
       .attr("font-family", "Raleway, sans-serif")
       .text(d => d.team1.name);
 
     g.append("text")
-      .attr("x", boxW/2 - pad).attr("y", -6)
+      .attr("x", boxW/2 - pad)
+      .attr("y", -boxH/4)
       .attr("text-anchor", "end")
-      .attr("font-size", 12)
+      .attr("font-size", 14)
       .attr("font-weight", "bold")
-      .attr("fill", "#e296cf")
+      .attr("fill", "#000000")
       .attr("font-family", "Raleway, sans-serif")
       .text(d => d.team1.score.toString());
 
     /* 6-e: textos equipo 2 */
     g.append("text")
-      .attr("x", -boxW/2 + pad + 24).attr("y", 12)
-      .attr("font-size", 12)
-      .attr("fill", "#c5c5c5")
+      .attr("x", -boxW/2 + pad + 40)
+      .attr("y", boxH/4 + 4)
+      .attr("font-size", 14)
+      .attr("fill", "#333333")
       .attr("font-family", "Raleway, sans-serif")
       .text(d => d.team2.name);
 
     g.append("text")
-      .attr("x", boxW/2 - pad).attr("y", 12)
+      .attr("x", boxW/2 - pad)
+      .attr("y", boxH/4 + 4)
       .attr("text-anchor", "end")
-      .attr("font-size", 12)
+      .attr("font-size", 14)
       .attr("font-weight", "bold")
-      .attr("fill", "#e296cf")
+      .attr("fill", "#000000")
       .attr("font-family", "Raleway, sans-serif")
       .text(d => d.team2.score.toString());
 
     /* 6-f: hover => grosor de borde */
     g.on("mouseover", function () {
         d3.select(this).select("rect:nth-of-type(2)")
-          .transition().duration(200).attr("stroke-width", 2.5);
+          .transition().duration(200)
+          .attr("stroke-width", 2.5)
+          .attr("stroke", "#2563eb");
       })
      .on("mouseout", function () {
         d3.select(this).select("rect:nth-of-type(2)")
-          .transition().duration(200).attr("stroke-width", 1.5);
+          .transition().duration(200)
+          .attr("stroke-width", 1.5)
+          .attr("stroke", "#333333");
       });
 
     /* ──────────────────────────────────────────────────────────────────────
@@ -249,7 +258,7 @@ const TournamentTable: React.FC<Props> = ({
   return (
     <svg
       ref={svgRef}
-      style={{ maxWidth: "100%", display: "block", backgroundColor: "#11111B" }}
+      style={{ maxWidth: "100%", display: "block", backgroundColor: "#f1f3f7" }}
     />
   );
 };

@@ -1,8 +1,143 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+@font-face {
+  font-family: "Font";
+  src: url("/TC3/fonts/items/JetBrains.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: #c6aae8; /* Texto en morado claro */
+  font-family: "Font", "Raleway", sans-serif;
+  background: #11111B;
+  min-height: 100vh;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+hr {
+  border: 2px;
+  height: 3px;
+  opacity: 0.7;
+  background-color: #e296cf;
+}
+
+h2 {
+  color: #c5c5c5;
+  font-size: 25px;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+h2:hover {
+  color: #e296cf;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #161616;
+}
+
+.nav-item {
+  opacity: 0.8;
+}
+
+.navbar-nav .nav-link {
+  color: #161616;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #2c2c2c;
+}
+
+.navbar-brand:hover {
+  color: #292929;
+}
+
+.navbar .dropdown-menu {
+  display: block;
+}
+
+.modal-content {
+  border-color: #c6aae8;
+  border-radius: 10px;
+}
+
+.modal-header,
+.modal-footer {
+  background-color: #c6aae8;
+  color: #161616;
+}
+
+.center-vertically-and-horizontally {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color {
+  background-color: #c6aae8;
+  color: #161616;
+}
+
+.color1 {
+  background-color: #11111B;
+}
+
+.color2 {
+  background-color: #C5C5C5;
+}
+
+.bordered {
+  border: 2px solid #c6aae8;
+  border-radius: 10px;
+}
+
+/* Animaciones para el torneo */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+@keyframes glowEffect {
+  0% { filter: drop-shadow(0 0 2px rgba(198, 170, 232, 0.3)); }
+  50% { filter: drop-shadow(0 0 8px rgba(198, 170, 232, 0.6)); }
+  100% { filter: drop-shadow(0 0 2px rgba(198, 170, 232, 0.3)); }
+}
+
+.tournament-container {
+  animation: fadeIn 0.8s ease-out;
+  padding: 24px;
+  background-color: #1a1a2e;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #c6aae8;
+}
+
+.tournament-title {
+  color: #c5c5c5;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  animation: scaleIn 0.5s ease-out;
 }
 
 .logo {

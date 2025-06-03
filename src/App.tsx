@@ -1,6 +1,6 @@
 // App.tsx
-// import React from "react";
 import TournamentTable, { type Round } from "./components/TournamentTable";
+import "./App.css";
 
 // ✱ Ejemplo simplificado de datos del torneo.  
 //   • En "Octavos" (8 partidos) cada partido tiene un id único, p.ej. "psv-juventus".  
@@ -136,8 +136,8 @@ const rounds: Round[] = [
 
 export default function App() {
   return (
-    <div style={{ padding: 24 }}>
-      <h2 style={{ textAlign: "center" }}>Campeones de la UEFA 2024/25</h2>
+    <div className="tournament-container">
+      <h2 className="tournament-title">Campeones de la UEFA 2024/25</h2>
       <TournamentTable rounds={rounds} width={1100} matchGap={80} />
     </div>
   );

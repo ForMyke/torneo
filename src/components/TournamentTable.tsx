@@ -43,9 +43,9 @@ const TournamentTable: React.FC<BracketProps> = ({
     const nRounds = rounds.length;
     const columnW = width / nRounds;
 
-    /** 
-     * Guarda en un Map la posición { x, y } de cada partido por su id. 
-     * La ronda 0 (primera) aparece con y = (mIdx+1)*matchGap, 
+    /**
+     * Guarda en un Map la posición { x, y } de cada partido por su id.
+     * La ronda 0 (primera) aparece con y = (mIdx+1)*matchGap,
      * luego las demás se centran entre los dos “padres”.
      */
     const matchPos: Map<string, { x: number; y: number }> = new Map();
@@ -62,11 +62,11 @@ const TournamentTable: React.FC<BracketProps> = ({
         round.matches.forEach((match) => {
           // Separar el id con “|”, exactamente en el mismo orden de los ids de la ronda anterior
           const partes = match.id.split("|");
-          // Si concatenaste más de dos ids (por ej. “a|b|c|d”), 
+          // Si concatenaste más de dos ids (por ej. “a|b|c|d”),
           // asumes que “padre izquierdo” es la combinación de los dos primeros (a|b)
           // y “padre derecho” la combinación de los dos últimos (c|d).
           // Para no complicar la lógica, en este ejemplo
-          // vamos a tomar las dos mitades: 
+          // vamos a tomar las dos mitades:
           const mitad = Math.floor(partes.length / 2);
           const leftId = partes.slice(0, mitad).join("|");
           const rightId = partes.slice(mitad).join("|");
@@ -145,8 +145,8 @@ const TournamentTable: React.FC<BracketProps> = ({
       });
 
     const boxW = columnW * 0.8; // ancho de la caja
-    const boxH = 50;           // alto total (incluye espacio para dos equipos)
-    const textPad = 8;         // padding interior
+    const boxH = 50; // alto total (incluye espacio para dos equipos)
+    const textPad = 8; // padding interior
 
     // Fondo blanco + borde de la caja
     matchG

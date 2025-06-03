@@ -1,11 +1,8 @@
-// App.tsx
+// src/App.tsx
+// import React from "react";
 import TournamentTable, { type Round } from "./components/TournamentTable";
 import "./App.css";
 
-// ✱ Ejemplo simplificado de datos del torneo.
-//   • En "Octavos" (8 partidos) cada partido tiene un id único, p.ej. "psv-juventus".
-//   • En "Cuartos" (4 partidos), el id de cada partido es: "idPadre1|idPadre2".
-//   • En "Semifinal" (2 partidos), idéntico: "idPartidoCuarto1|idPartidoCuarto2".
 const rounds: Round[] = [
   {
     name: "",

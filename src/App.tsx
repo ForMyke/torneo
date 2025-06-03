@@ -122,7 +122,6 @@ const rounds: Round[] = [
 export default function App() {
   return (
     <div className="tournament-container">
-      
       <TournamentTable rounds={rounds} width={1100} matchGap={80} />
     </div>
   );

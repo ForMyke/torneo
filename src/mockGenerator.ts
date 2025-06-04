@@ -1,8 +1,8 @@
 import type { Round, Match, Team } from './components/TournamentTable/types';
 
 function generateTeamName(index: number): string {
-  const prefix = ['Team', 'Squad', 'Club', 'United', 'City', 'Rangers', 'Warriors'];
-  return `${prefix[index % prefix.length]} ${index + 1}`;
+  // Nombres genéricos para participantes
+  return `Participante ${index + 1}`;
 }
 
 function createTeam(index: number): Team {
@@ -26,7 +26,7 @@ function createInitialRound(numTeams: number): Round {
   }
 
   return {
-    name: `Round of ${numTeams}`,
+    name: `Ronda de ${numTeams}`,
     matches
   };
 }
@@ -50,12 +50,12 @@ function createNextRound(previousRound: Round, roundIndex: number): Round {
     });
   }
 
-  let roundName = `Round ${roundIndex + 1}`;
+  let roundName = `Ronda ${roundIndex + 1}`;
   if (matches.length === 1) roundName = "Final";
-  else if (matches.length === 2) roundName = "Semifinals";
-  else if (matches.length === 4) roundName = "Quarter Finals";
-  else if (matches.length === 8) roundName = "Round of 16";
-  else if (matches.length === 16) roundName = "Round of 32";
+  else if (matches.length === 2) roundName = "Semifinales";
+  else if (matches.length === 4) roundName = "Cuartos de Final";
+  else if (matches.length === 8) roundName = "Octavos de Final";
+  else if (matches.length === 16) roundName = "16vos de Final";
 
   return {
     name: roundName,

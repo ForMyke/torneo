@@ -1,232 +1,55 @@
+/* src/App.css */
 * {
   box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
-  color: #333333;
-  font-family: "Font", "Raleway", sans-serif;
-  background: #f1f3f7;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  height: auto !important;
-  overflow: visible;
+  font-family: 'Arial', 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.5;
 }
 
-#root {
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  min-height: 100vh;
-  height: auto !important;
+.app-container {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenido principal - ahora ocupa todo el espacio */
+.app-content {
+  flex: 1;
+  padding: 10px;
+  max-width: 100%;
   width: 100%;
-  overflow: visible;
+  margin: 0 auto;
 }
 
-hr {
-  border: 2px;
-  height: 3px;
-  opacity: 0.7;
-  background-color: #333333;
+/* Pie de página simple */
+.app-footer {
+  background-color: #f8f8f8;
+  border-top: 1px solid #eaeaea;
+  color: #666;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
 }
 
-h2 {
-  color: #333333;
-  font-size: 25px;
-  margin-bottom: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-
-
-/* Animaciones para el torneo */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes scaleIn {
-  from { transform: scale(0.9); }
-  to { transform: scale(1); }
-}
-
-@keyframes glowEffect {
-  0% { filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1)); }
-  50% { filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2)); }
-  100% { filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1)); }
-}
-
-/* Nuevas animaciones creativas */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes rotateIn {
-  from { 
-    transform: rotate(-180deg) scale(0);
-    opacity: 0;
-  }
-  to { 
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-15px); }
-  60% { transform: translateY(-8px); }
-}
-
-@keyframes shimmer {
-  0% { 
-    background-position: -200% center;
-  }
-  100% { 
-    background-position: 200% center;
-  }
-}
-
-@keyframes floatUpDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes electricPulse {
-  0% { 
-    box-shadow: 0 0 5px #c6aae8, 0 0 10px #c6aae8;
-  }
-  50% { 
-    box-shadow: 0 0 20px #c6aae8, 0 0 30px #c6aae8, 0 0 40px #c6aae8;
-  }
-  100% { 
-    box-shadow: 0 0 5px #c6aae8, 0 0 10px #c6aae8;
-  }
-}
-
-@keyframes wavyLine {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes neonGlow {
-  0%, 100% {
-    text-shadow: 
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 15px #c6aae8,
-      0 0 20px #c6aae8,
-      0 0 35px #c6aae8,
-      0 0 40px #c6aae8,
-      0 0 50px #c6aae8,
-      0 0 75px #c6aae8;
-  }
-  50% {
-    text-shadow: 
-      0 0 10px #fff,
-      0 0 20px #fff,
-      0 0 30px #c6aae8,
-      0 0 40px #c6aae8,
-      0 0 70px #c6aae8,
-      0 0 80px #c6aae8,
-      0 0 100px #c6aae8,
-      0 0 150px #c6aae8;
-  }
-}
-
-@keyframes rainbowShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
-@keyframes zigzag {
-  0% { transform: translateX(0) translateY(0); }
-  25% { transform: translateX(10px) translateY(-5px); }
-  50% { transform: translateX(-10px) translateY(5px); }
-  75% { transform: translateX(5px) translateY(-10px); }
-  100% { transform: translateX(0) translateY(0); }
-}
-
-@keyframes morphShape {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  50% { border-radius: 50% 60% 60% 50% / 60% 50% 30% 70%; }
-  75% { border-radius: 60% 30% 40% 70% / 60% 70% 40% 30%; }
-}
-
-/* Efectos de partículas */
-@keyframes particle1 {
-  0% {
-    transform: translate(0, 0) scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(100px, -100px) scale(1);
-    opacity: 0;
-  }
-}
-
-@keyframes particle2 {
-  0% {
-    transform: translate(0, 0) scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-100px, -100px) scale(1);
-    opacity: 0;
-  }
-}
-
-@keyframes particle3 {
-  0% {
-    transform: translate(0, 0) scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(50px, -150px) scale(1);
-    opacity: 0;
-  }
-}
-
-/* Clases para aplicar animaciones */
-.winner-glow {
-  animation: electricPulse 2s ease-in-out infinite;
-}
-
-.tournament-title-animated {
-  animation: neonGlow 3s ease-in-out infinite;
-}
-
-.match-hover {
-  animation: floatUpDown 3s ease-in-out infinite;
-}
-
-.rainbow-border {
-  animation: rainbowShift 5s linear infinite;
-}
-
-.shimmer-effect {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
+/* Contenedor del torneo simplificado */
 .tournament-container {
   width: 100%;
-  height: auto !important;
-  min-height: 100vh;
-  padding: 2rem;
-  overflow: visible;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  overflow-x: auto;
+  background-color: #ffffff;
+  padding: 5px;
+  border: 1px solid #eaeaea;
+  margin-top: 5px;
+}
+
+/* Media queries básicas */
+@media (max-width: 768px) {
+  .app-content {
+    padding: 5px;
+  }
 }

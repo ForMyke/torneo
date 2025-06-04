@@ -32,12 +32,12 @@ export function calculateLayout(
     if (r === 0) {
       // Primera ronda: repartir homogéneamente
       const totalH = (round.matches.length - 1) * matchGap;
-      const startY = (baseH - totalH) / 2;
+      const startY = (baseH - totalH) / 2 + 100;
       round.matches.forEach((m, i) => {
         pos.set(m.id, { x, y: startY + i * matchGap });
       });
     } else {
-      // Rondas siguientes: posición = promedio de los dos “hijos”
+      // Rondas siguientes: posición = promedio de los dos "hijos"
       round.matches.forEach(m => {
         const parts = m.id.split("|");
         const mid = Math.floor(parts.length / 2);
